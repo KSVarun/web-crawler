@@ -9,7 +9,7 @@ def ecommerse(max_pages):
             str(page)
         source_code = requests.get(url)
         plain_text = source_code.text
-        soup = BeautifulSoup(plain_text)
+        soup = BeautifulSoup(plain_text, features="html.parser")
         product_count = 0
         for link in soup.findAll('a', {'class': '_2cLu-l'}):
             product_count += 1
